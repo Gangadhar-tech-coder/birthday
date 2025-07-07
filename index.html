@@ -152,25 +152,34 @@
     <div class="message">🎉 Happy Birthday! 🎂 My Dear Prasanna
       <p style="font-size: 18px; text-align: center; color: hotpink; margin-top: 10px;">With love, laughter, and friendship — Happy Birthday, Queen! 👑💕
 </p>
-      <p style="font-size: 18px; text-align: center; color: hotpink; margin-top: 10px;">Yours Lovely Sai Basanth</p>
+      <p style="font-size: 18px; text-align: center; color: hotpink; margin-top: 10px;"> --Sai Basanth</p>
     </div>
-    <button class="open-button" onclick="openEnvelope()">Open</button>
+    <button class="open-button" id="openBtn" onclick="openEnvelope()">Open</button>
   </div>
 
   <script>
     let balloonInterval;
 
     function openEnvelope() {
-  const main = document.getElementById('main'); 
+  const main = document.getElementById('main');
   const music = document.getElementById('bgMusic');
+  const openBtn = document.getElementById('openBtn');
+
+  // Open envelope
   main.classList.add('open');
 
+  // Start balloons or confetti (if added)
   if (!balloonInterval) {
-    balloonInterval = setInterval(createBalloon, 300);
+    balloonInterval = setInterval(createBalloon, 300); // or createConfetti()
   }
 
+  // Play music
   music.play().catch(err => console.log("Music autoplay blocked", err));
+
+  // 🔻 Hide the open button
+  openBtn.style.display = "none";
 }
+
 
 
     function createBalloon() {
